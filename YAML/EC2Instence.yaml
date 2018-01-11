@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: "ami-cb9ec1b1"
+    ap-southeast-1:
+      AMI: "ami-889cecf4"
+Resources:
+  myEC2Instence:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      InstanceType: t2.micro      

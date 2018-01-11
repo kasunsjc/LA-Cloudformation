@@ -1,7 +1,7 @@
 {
-    "AWSTemplateVersion" : "2010-09-09",
+    "AWSTemplateFormatVersion" : "2010-09-09",
 
-    "Mapping":{
+    "Mappings":{
         "RegionMap":{
             "us-east-1":{
                 "64" : "ami-cb9ec1b1"
@@ -14,11 +14,11 @@
 
     "Resources" : {
         
-        "-": {
+        "EC2Instence": {
             "Type": "AWS::EC2::Instance",
             "Properties": {
                 "ImageId": {
-                "Fn::FindInMap": ["RegionMap",{ "Ref": "AWS::Region" },"AMI" ]
+                "Fn::FindInMap": ["RegionMap",{ "Ref": "AWS::Region" },"64" ]
                 },
                 "InstanceType": "t2.micro"
             }
